@@ -3,21 +3,22 @@ export default function Sidebar(){
     return (
         <div className ="sidebar">
            <div className ="sidebarItem">
-            <span className="sidebarTitle">ABOUT ME</span>
-            <img src="https://unsplash.com/photos/Cy5dya5MAlI"
-            alt="" />
+            <span className="sidebarTitle">ABOUT US</span>
             <p>
-                Loremk ebeineqw jbefjqn fjejk
+                This website is aimed at helping students by providing them interview preparations and internship experiences of our alumni members.
             </p>
            </div>
            <div className = "sidebarItem">
             <span className="sidebarTitle">Categories</span>
             <ul className="sidebarList">
-                <li className="sidebarListItem">Life</li>
-                <li className="sidebarListItem">Music</li>
-                <li className="sidebarListItem">Style</li>
-                <li className="sidebarListItem">Tech</li>
-                <li className="sidebarListItem">Cinema</li>
+                <li className="sidebarListItem">Computer Science</li>
+                <li className="sidebarListItem">Electronics </li>
+                <li className="sidebarListItem">Electrical</li>
+                <li className="sidebarListItem">Mechanical</li>
+                <li className="sidebarListItem">Civil</li>
+                <li className="sidebarListItem">Chemical</li>
+                <li className="sidebarListItem">Biotechnology</li>
+
                 </ul>
            </div>
            <div className="sidebarItem"></div>

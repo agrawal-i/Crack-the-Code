@@ -10,16 +10,24 @@ import {
   Route,
    Routes,
   Link
- } from 'react-router-dom';
+ } from "react-router-dom";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
   return (
     <Router>
       <Topbar />
       <Routes>
-        <Route path="/">
-          <Home/>
+      <Route  path="/" element={<Home/>} />
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/user" element={<PrivateRoutes/>}>
+       
+        <Route path="settings" element={<Settings/>} />
+        <Route path="write" element={<Write/>} />
+        <Route path="post/:postId" element={<Single/>} />
         </Route>
+       
       </Routes>
       </Router>
   );
