@@ -5,22 +5,23 @@ import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Single from "./pages/single/Single";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Router,
+import { 
+  BrowserRouter as Router, 
+  Route,
+   Routes,
   Link
-} from "react-router-dom";
+ } from 'react-router-dom';
+
 function App() {
   return (
     <Router>
-   <Topbar/>
-   <Switch>
-   <Route path="/">
-    <Home/>
-   </Route>
-   </Switch>
-   </Router>
+      <Topbar />
+      <Routes>
+        <Route path="/">
+          <Home/>
+        </Route>
+      </Routes>
+      </Router>
   );
 }
 
