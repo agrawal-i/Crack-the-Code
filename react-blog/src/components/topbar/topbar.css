@@ -7,7 +7,7 @@
     display : flex;
     align-items : center;
     font-family :'Josefin Sans', sans-serif;
-
+    z-index: 999;
 }
  
 .topLeft, .topRight{
@@ -19,7 +19,7 @@
 .topCenter{
     flex : 6;
 }
-.topicon {
+.topIcon {
     font-size : 20pxx;
     margin-right: 10px;
     color: #444;
@@ -45,4 +45,11 @@
     color : #666;
     cursor: pointer;
     margin-left : 50px;
+}
+.topImg
+{
+width : 40px;
+height: 40px;
+border-radius : 50%;
+object-fit: cover;
 }
