@@ -74,14 +74,32 @@ router.get("/:id", async (req, res) => {
     }
   });
 
-//get all posts
-// router.get("/", async (req, res) => {
-//     try {
-//       const post = await Post.findById(req.params.id);
-//       res.status(200).json(post);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
+// get all posts either by username or categories
+  router.get("/", async (req, res) => {
+    const username = req.query.user;
+    const catName = req.query.cat;
+    try {
+      let posts;
+       //check if username
+      if (username) {
+        posts = await Post.find({ username });
+
+      } 
+      //check if category
+      else if (catName) {
+        posts = await Post.find({
+          categories: {
+            $in: [catName],
+          },
+        });
+        //return all posts if both absent 
+      } else {
+        posts = await Post.find();
+      }
+      res.status(200).json(posts);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router
