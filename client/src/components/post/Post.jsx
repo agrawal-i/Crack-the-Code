@@ -1,34 +1,35 @@
 import  "./post.css"
+import {Link} from "react-router-dom"
 
-export default function Post() {
+export default function Post({post}) {
   return (
     <div className="post">
+      {post.photo && (
        <img 
        className="postImg"
-       src="https://images.unsplash.com/photo-1661956600655-e772b2b97db4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt=""/>
+       src={post.photo}
+       alt=""/>
+      )}
        <div className="postInfo">
-        <div className="postCats">
-            <span className="postCat">Music</span>
-            <span className="postCat">Life</span>
+        <div className="postCats">{
+          post.categories.map(c =>(
+            <span className="postCat">{c.name}</span>
+          ))
+        }       
         </div>
+        <Link to={`/post/${post._id}`} className="link">
         <span className="postTitle">
-            Lorem ipsum dolor sit
+            {post.title}
 
         </span>
+        </Link>
+        
         <hr/>
-       <span className="postDate">1 hour ago</span>
+       <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
 
         
        </div>
-      <p className="postDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati 
-        aliquid adipisci pariatur nulla eaque distinctio dolorem eveniet! Doloribus reiciendis harum eos. 
-        Modi officia quae explicabo nesciunt accusamus velit exercitationem.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati 
-        aliquid adipisci pariatur nulla eaque distinctio dolorem eveniet! Doloribus reiciendis harum eos. 
-        Modi officia quae explicabo nesci
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati 
-        aliquid adipisci pariatur nulla eaque distinctio dolorem eveniet! Doloribus reiciendis harum eos. 
-        Modi officia quae explicabo nesci</p>
+      <p className="postDescription">{post.desc}</p>
     </div>
   )
 }
