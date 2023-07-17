@@ -9,26 +9,28 @@ import {
   BrowserRouter as Router, 
   Route,
    Routes,
+   Switch,
   Link
  } from "react-router-dom";
-import PrivateRoutes from "./components/PrivateRoutes";
+
 
 function App() {
+  const user= true;
   return (
     <Router>
       <Topbar />
-      <Routes>
-      <Route  path="/" element={<Home/>} />
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/user" element={<PrivateRoutes/>}>
-       
-        <Route path="settings" element={<Settings/>} />
-        <Route path="write" element={<Write/>} />
-        <Route path="post/:postId" element={<Single/>} />
+      <Switch>
+        <Route exact path="/">
+          <Home />
         </Route>
-       
-      </Routes>
+        <Route path="/register"> {user?<Home/>:<Register/>} </Route>
+        <Route path="/login"> {user? <Home/>:<Login />}</Route>
+        <Route path="/write">{user?<Write /> : <Register/>}</Route>
+        <Route path="/settings">{user?<Settings />: <Register/>} </Route>
+        <Route path="/post/:postId">
+          <Single/>
+        </Route>
+      </Switch>
       </Router>
   );
 }
