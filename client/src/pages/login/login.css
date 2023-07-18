@@ -39,6 +39,11 @@
     padding: 10px;
 
 }
+.loginSubmit:disabled
+{
+    cursor: not-allowed;
+    background-color:rgb(165, 122, 122);
+}
 .RegisterButton{
 position: absolute;
 top: 60px;
