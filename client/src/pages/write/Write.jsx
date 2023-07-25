@@ -5,6 +5,7 @@ import {Context} from "../../context/Context"
 export default function Write() {
   const [title,setTitle] = useState("")
   const [desc,setDesc] = useState("")
+  const [categories, setCategories] = useState([])
   const[file,setFile] = useState(null)
  const {user} = useContext (Context)
   const handleSubmit = async (e) => {
@@ -13,6 +14,8 @@ export default function Write() {
       username : user.username,
       title, 
       desc,
+      categories,
+      
     };
     if(file)
     {
@@ -55,6 +58,21 @@ export default function Write() {
             />
 
         </div>
+        <div className ="item">
+          <h1>Choose Branch</h1>
+          <input type="radio" name="cat" value="Computer Science Engineering" id="computer" />
+          <label htmlFor="computer">Computer Science and Engineering</label>
+          <input type="radio" name="cat" value="Elecctronics and Communication" id="electronics" />
+          <label htmlFor="electronics">Electronics and Communication</label>
+          <input type="radio" name="cat" value="Electrical Engineering" id="electrical" />
+          <label htmlFor="electrical">Electrical Engineering</label>
+          <input type="radio" name="cat" value="Mechanical Engineering" id="mechanical" />
+          <label htmlFor="mechanical">Mechanical Engineering</label>
+          <input type="radio" name="cat" value="Civil Engineering" id="civil" />
+          <label htmlFor="civil">Civil Engineering</label>
+          <input type="radio" name="cat" value="Chemical Engineering" id="chemical" />
+          <label htmlFor="chemical">Chemical Engineering</label>
+          </div>
         <div className="writeFormGroup">
             <textarea placeholder='Tell your story...' type="text"
             className='writeInput writeText'
@@ -63,6 +81,7 @@ export default function Write() {
 
             </textarea>
         </div>
+        
         <button className="writeSubmit" type="submit">Publish</button>
       </form>
     </div>

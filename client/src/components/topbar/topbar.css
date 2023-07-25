@@ -25,6 +25,14 @@
     color: #444;
     cursor: pointer;
 }
+.TopImg
+{
+width : 40px;
+height: 40px;
+border-radius : 50%;
+object-fit:cover;
+cursor: pointer;
+}
 .topList{
     display: flex;
     justify-content: center;
@@ -45,12 +53,4 @@
     color : #666;
     cursor: pointer;
     margin-left : 50px;
-}
-.topImg
-{
-width : 40px;
-height: 40px;
-border-radius : 50%;
-object-fit: cover;
-cursor: pointer;
 }
